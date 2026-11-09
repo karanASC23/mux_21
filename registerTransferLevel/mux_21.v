@@ -2,14 +2,11 @@ module mux_21(
 	
 	input wire A,
 	input wire B,
-	output wire Y,
+	output tri Y,
 	input wire S_0
-
 );
+	//assign ouput = select ? yes(1) : no(0);
+	assign Y  = S_0 ? B : A;
 
-	wire a_internal, b_internal;
-	assign a_internal  = A & ~S_0;
-	assign b_internal  = B & S_0;
-	assign Y = a_internal | b_internal;
+endmodule	
 
-endmodule
